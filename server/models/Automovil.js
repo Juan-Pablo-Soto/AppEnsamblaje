@@ -61,14 +61,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        owner:{
-            type: DataTypes.STRING,
-            allowNull: true,
-        }
-
-
 
     });
+
+
+    Automovil.associate = (models) => {
+        Automovil.hasOne(models.Designer)
+    }
     return Automovil;
 
 
