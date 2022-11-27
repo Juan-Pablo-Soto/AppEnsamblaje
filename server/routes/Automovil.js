@@ -4,12 +4,16 @@ const { Automovil } = require("../models")
 
 
 router.get("/", async (req, res) => {
-    //res.send("Hello world");
     //se le da la informacion de los carros en la base de datos
     const listaAutomoviles = await Automovil.findAll();
     res.json(listaAutomoviles);
 });
 
+router.get("/:id", async (req, res) =>{
+    const id = req.params.id;
+    const modelo = await Automovil.findByPk(id);
+    res.json(modelo);
+});
 
 router.post("/", async (req, res) => {
     const automovil = req.body
@@ -17,29 +21,6 @@ router.post("/", async (req, res) => {
     await Automovil.create(automovil);
     res.json(automovil);
 });
-/* se utiliza un json con este formato para ingresar nuevos
-automoviles
-    {
-    "tipo": "sedan",
-    "trans4x4": "simple",
-    "trans": "manual",
-    "matAscientos": "cuero",
-    "motor": "disel",
-    "vidrios": "electricos",
-    "espejos": "electricos",
-    "sensoresF": "si",
-    "sensoresT": "si",
-    "sensoresL": "si",
-    "cam": "si",
-    "tablero": "digital",
-    "tapisado": "cuero",
-    "sonido": "si",
-    "designer": "junior"
-    }
-
-*/
-
-
 
 
 module.exports = router

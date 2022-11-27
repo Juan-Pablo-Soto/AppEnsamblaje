@@ -1,13 +1,23 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const cors = require("cors");
+
+
 
 app.use(express.json());
+app.use(cors());
 
 const db = require("./models")
+
+
 
 //Routers
 const automovilRouter = require('./routes/Automovil')
 app.use("/automovil", automovilRouter);
+
+const plantaRouter = require('./routes/Planta')
+app.use("/planta", plantaRouter);
+
 
 db.sequelize.sync().then(() => {
     app.listen(3001, () => {

@@ -29,7 +29,9 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
     });
- 
+    Planta.associate = (models) => {
+        Planta.hasMany(models.Replica)
+    }
    
     return Planta;
 };

@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+
+
+.unLink {
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+  background-color: #d79cf6;
+}
+
+.planta {
+  padding: 25px 25px 25px 25px;
+  margin: 50px 50px 50px 50px;
+  background-color: rgb(183, 222, 246);
+}
+
+
+.carro {
+  padding: 25px 25px 25px 25px;
+  margin: 50px 50px 50px 50px;
+  background-color: rgb(183, 222, 246);
+}
+
+.designer{
+  font-family: "Lucida Console", "Courier New", monospace;
+  background-color: rgb(141, 160, 173);
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.Tema {
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 15px;
+
+}
+
+.Info{
+  margin: 5px 5px 5px 5px;
+  background-color: rgb(220, 235, 245);
+}
+
+.error{
+  color: red;
+}

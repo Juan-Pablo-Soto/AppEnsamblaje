@@ -14,10 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
  
-    Replica.associate = (models) => {
-        Replica.hasOne(models.Planta)
-        Replica.hasOne(models.Automovil)
-    }
+
  
     // FALTA LO DE LOS BLOQUES ABC PARA LIMITAR CADA UNO DE ELLOS
 

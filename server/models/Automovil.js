@@ -1,6 +1,28 @@
 
 module.exports = (sequelize, DataTypes) => {
     const Automovil = sequelize.define("Automovil", {
+        nombreDesigner: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        apellidosDesigner: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        },
+        experienciaDesigner: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
+        nivelDesigner: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        
+        nombre:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         tipo:{
             type: DataTypes.STRING,
             allowNull: false,
@@ -57,16 +79,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        designer:{
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+
 
     });
 
 
     Automovil.associate = (models) => {
-        Automovil.hasOne(models.Designer)
+        Automovil.hasMany(models.Replica)
     }
     return Automovil;
 
