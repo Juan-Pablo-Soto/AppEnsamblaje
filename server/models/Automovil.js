@@ -85,7 +85,10 @@ module.exports = (sequelize, DataTypes) => {
 
 
     Automovil.associate = (models) => {
-        Automovil.hasMany(models.Replica)
+        Automovil.hasMany(models.Replica,{
+            onDelete: "cascade",
+
+        })
     }
     return Automovil;
 

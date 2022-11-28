@@ -18,6 +18,8 @@ app.use("/automovil", automovilRouter);
 const plantaRouter = require('./routes/Planta')
 app.use("/planta", plantaRouter);
 
+const replicaRouter = require('./routes/Replica')
+app.use("/replica", replicaRouter);
 
 db.sequelize.sync().then(() => {
     app.listen(3001, () => {

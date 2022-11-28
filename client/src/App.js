@@ -6,7 +6,7 @@ import CrearModelo from "./pages/CrearModelo"
 import Plantas from "./pages/Plantas"
 import CrearPlantas from "./pages/CrearPlanta"
 import Modelo from "./pages/Modelo"
-
+import Planta from "./pages/Planta"
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
           <Route  path = "/plantas" element = {<Plantas/>}  />
           <Route  path = "/crearPlantas" element = {<CrearPlantas/>}  />
           <Route  path = "/modelo/:id" element = {<Modelo/>}  />
+          <Route  path = "/planta/:id" element = {<Planta/>}  />
         </Routes>
 
         

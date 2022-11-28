@@ -1,10 +1,11 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function CrearModelo() {
+    let navigate = useNavigate()
 
     const initialValues = {
         nombre: "",
@@ -69,6 +70,7 @@ function CrearModelo() {
         console.log(values)
         axios.post("http://localhost:3001/automovil", values).then((response) => {
         alert("Guardado con exito")
+        navigate("/")
       });
         
 

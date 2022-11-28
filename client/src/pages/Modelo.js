@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
 import {useParams} from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Modelo() {
     let {id} = useParams(); 
     const [modeloObjecto, setModeloObject] = useState({})
-    
+    let navigate = useNavigate();
     useEffect(() => {
         axios.get(`http://localhost:3001/automovil/${id}`).then((response) => {
             setModeloObject(response.data)
         })
     }, [])
+
+
+    const deleteModelo = (id) => {
+        console.log(id)
+        axios
+          .delete(`http://localhost:3001/automovil/${id}`).then(() => {  navigate("/")})
+    };
+
     return (
         
         <div className='carro'> 
@@ -29,7 +37,7 @@ function Modelo() {
               <div className='trans'> Transmisión: {modeloObjecto.trans} </div>
               <div className='motor'> Tipo del motor: {modeloObjecto.motor} </div>
 
-              <button> Borrar </button>
+              <button onClick={() => deleteModelo(modeloObjecto.id)}> Borrar </button>
 
             </div>
 

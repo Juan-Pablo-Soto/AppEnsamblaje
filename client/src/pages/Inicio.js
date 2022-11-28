@@ -15,11 +15,30 @@ function Inicio() {
         setAutomoviles(response.data);
       })  
     }, [])
-  
+    
+    const busqueda = (a) => {
+      let x = document.getElementById("busqueda").value;
+      if(x!==""){
+        axios.get(`http://localhost:3001/automovil/bus/${x}`).then((response) => {
+          setAutomoviles(response.data);
+        })
+      }
+      else{
+        axios.get("http://localhost:3001/automovil").then((response) => {
+          setAutomoviles(response.data);
+        })
+      }
+    }
+
     return (
 
         <div> Lista de modelos creados
-            {Automoviles.map((value, key) => {
+
+            <br/><input type="text" placeholder="Busqueda" id="busqueda" onChange= {busqueda}></input>
+
+            {
+            
+            Automoviles.map((value, key) => {
             return <div className='carro' onClick={() => navigate(`/modelo/${value.id}`)}> 
               <div className="designer">
                 <div className='nombreD'> Nombre Diseñador: {value.nombreDesigner} {value.apellidosDesigner} </div> 
@@ -35,7 +54,6 @@ function Inicio() {
               <div className='trans'> Transmisión: {value.trans} </div>
               <div className='motor'> Tipo del motor: {value.motor} </div>
 
-              <button> Borrar </button>
 
             </div>;
 

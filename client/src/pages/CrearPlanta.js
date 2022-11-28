@@ -1,9 +1,10 @@
 import React from "react";
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function CrearPlantas() {
+    let navigate = useNavigate()
 
     const initialValues = {
         nombreEmpresa: "",
@@ -28,8 +29,9 @@ function CrearPlantas() {
     const onSubmit = (values) => {
         console.log(values)
         axios.post("http://localhost:3001/planta", values)
+        navigate()
         alert("Guardado con exito")
-
+        navigate(`/plantas`)
     }
 
 

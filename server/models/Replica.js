@@ -1,9 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Replica = sequelize.define("Replica", {
-        placa: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
         owner: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -12,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        nombreDis: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        }
     });
  
 

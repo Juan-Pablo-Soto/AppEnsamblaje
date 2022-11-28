@@ -30,8 +30,11 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
     Planta.associate = (models) => {
-        Planta.hasMany(models.Replica)
-    }
+        Planta.hasMany(models.Replica, {
+            onDelete: "cascade",
+
+        });
+    };
    
     return Planta;
 };
