@@ -16,6 +16,13 @@
 }
 
 
+.replica {
+  background-color: rgb(62, 179, 252);
+
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
+
 .carro {
   padding: 25px 25px 25px 25px;
   margin: 50px 50px 50px 50px;
@@ -42,4 +49,9 @@
 
 .error{
   color: red;
+}
+
+
+.bloque {
+  display: inline-block; *display: inline;
 }

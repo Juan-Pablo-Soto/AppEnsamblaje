@@ -45,6 +45,11 @@ function Planta() {
           .delete(`http://localhost:3001/planta/${id}`).then(() => {  navigate("/plantas")})
     };
 
+
+    const deleteReplica = (id) => {
+      axios
+        .delete(`http://localhost:3001/replica/${id}`).then(() => {  navigate("/plantas")})
+  };
     const agregarReplica = (bloque) => {
       let values = {};
       values.bloque = bloque;
@@ -71,17 +76,17 @@ function Planta() {
     const checkNumber = (bloque) => {
       switch (bloque) {
         case "A":
-          if(ListaReplicasA.length >= 10){
+          if(ListaReplicasA.length > 9){
             document.getElementById("btnA").disabled = true;
           }else{agregarReplica("A")}
           break;
           case "B":
-            if(ListaReplicasB.length >= 10){
+            if(ListaReplicasB.length > 9){
               document.getElementById("btnB").disabled = true;
             }else{agregarReplica("B")}
             break;
           case "C":
-            if(ListaReplicasC.length >= 10){
+            if(ListaReplicasC.length > 9){
               document.getElementById("btnC").disabled = true;
             }else{agregarReplica("C")}
             break;
@@ -93,29 +98,34 @@ function Planta() {
        
             <div className='planta'> 
 
-              <div>
+              <div >
                 <div > Nombre de la empresa: {plantaObjecto.nombreEmpresa}</div>
                 <div > Provincia: {plantaObjecto.provincia} </div> 
                 <div > Canton: {plantaObjecto.canton} </div> 
                 <div > Distrito: {plantaObjecto.distrito} </div>
               </div>
               <label>Agregar a nombre de: </label>
-              <input type="text" id="newOwner"></input>
+              <input type="text" id="newOwner"></input><br/>
 
               <div className="bloque" id="A">
                   {ListaReplicasA.map((cvalue, key) => {
                     return (
                     
-                    <div>  
-                    <label >Placa: {cvalue.id}</label>
+                    <div className="replica">  
+                    <label >Placa: {cvalue.id}   </label><br/>
+                    <label >Nombre del Diseño: {cvalue.nombreDis}   </label><br/>
+                    <label >Nombre del Dueño: {cvalue.owner}   </label><br/>
+                    <button onClick={()=>{
+
+                      console.log(cvalue.id)
+                      deleteReplica(cvalue.id)
+                      
+                      }}>-</button>
                     </div>
                     )})}
 
-
-
                   <button id="btnA" onClick={()=> {
                     checkNumber("A")
-                    
                     }}> 
                   Agregar Modelo a bloque A </button>
                   
@@ -127,9 +137,70 @@ function Planta() {
                   }   
                   </select><br/>
 
+              </div>
+              <div className="bloque" id="B">
+                  {ListaReplicasB.map((cvalue, key) => {
+                    return (
+                    
+                    <div className="replica">  
+                    <label >Placa: {cvalue.id}   </label><br/>
+                    <label >Nombre del Diseño: {cvalue.nombreDis}   </label><br/>
+                    <label >Nombre del Dueño: {cvalue.owner}   </label><br/>
+                    <button onClick={()=>{
 
+                      console.log(cvalue.id)
+                      deleteReplica(cvalue.id)
+                      
+                      }}>-</button>
+                    </div>
+                    )})}
+
+                  <button id="btnB" onClick={()=> {
+                    checkNumber("B")
+                    }}> 
+                  Agregar Modelo a bloque B </button>
+                  
+                  
+                  <select name="modeloB" id="modeloB">
+                  {Listamodelos.map((cvalue, key) => {
+                    return <option value = {key}>{cvalue.nombre}</option>
+                  })
+                  }   
+                  </select><br/>
 
               </div>
+              <div className="bloque" id="C">
+                  {ListaReplicasC.map((cvalue, key) => {
+                    return (
+                    
+                    <div className="replica">  
+                    <label >Placa: {cvalue.id}   </label><br/>
+                    <label >Nombre del Diseño: {cvalue.nombreDis}   </label><br/>
+                    <label >Nombre del Dueño: {cvalue.owner}   </label><br/>
+                    <button onClick={()=>{
+
+                      console.log(cvalue.id)
+                      deleteReplica(cvalue.id)
+                      
+                      }}>-</button>
+                    </div>
+                    )})}
+
+                  <button id="btnC" onClick={()=> {
+                    checkNumber("C")
+                    }}> 
+                  Agregar Modelo a bloque C </button>
+                  
+                  
+                  <select name="modeloC" id="modeloC">
+                  {Listamodelos.map((cvalue, key) => {
+                    return <option value = {key}>{cvalue.nombre}</option>
+                  })
+                  }   
+                  </select><br/>
+
+              </div>
+              
 
 
               </div>
