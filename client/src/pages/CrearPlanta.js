@@ -51,7 +51,7 @@ function CrearPlantas() {
 
                
                     <div className="Info">
-                     <label className="Tema">Nombre de la planta</label> <ErrorMessage className="error" name="nombreEmpresa" component="span" /><br/><br/>
+                     <label className="Tema">Nombre de la empresa</label> <ErrorMessage className="error" name="nombreEmpresa" component="span" /><br/><br/>
                     <Field type="text" id="nombre" name="nombreEmpresa" autoComplete="off"/>
                     </div>
                     <div className="Info">
